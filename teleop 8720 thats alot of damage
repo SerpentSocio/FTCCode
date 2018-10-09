@@ -1,0 +1,27 @@
+   public void runOpMode() throws InterruptedException {
+
+            leftMotorF= hardwareMap.dcMotor.get("left_motor_F");
+            rightMotorF = hardwareMap.dcMotor.get("left_motor_F");
+            rightMotorB = hardwareMap.dcMotor.get("left_motor_B");
+            leftMotorB = hardwareMap.dcMotor.get("left_motor_B");
+            armMotor = hardwareMap.dcMotor.get("arm_motor");
+
+            leftMotorF.setDirection(DcMotor.Direction.REVERSE);
+            rightMotorF.setDirection(DcMotor.Direction.FORWARD);
+            leftMotorB.setDirection(DcMotor.Direction.REVERSE);
+            rightMotorB.setDirection(DcMotor.Direction.FORWARD);
+            armMotor.setDirection(DcMotor.Direction.FORWARD);
+
+        waitForStart();
+        while(opModeIsActive()) {
+
+            leftMotorF.setPower(gamepad1.right_stick_y);
+            rightMotorF.setPower(gamepad1.right_stick_y);
+            leftMotorB.setPower(gamepad1.right_stick_y);
+            rightMotorB.setPower(gamepad1.right_stick_y);
+            armMotor.setPower(gamepad2.a);
+
+
+        }
+    }
+}
