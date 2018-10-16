@@ -1,24 +1,28 @@
    public void runOpMode() throws InterruptedException {
 
-            leftMotorF= hardwareMap.dcMotor.get("left_motor_F");
-            rightMotorF = hardwareMap.dcMotor.get("left_motor_F");
-            rightMotorB = hardwareMap.dcMotor.get("left_motor_B");
-            leftMotorB = hardwareMap.dcMotor.get("left_motor_B");
+            leftMotorf = hardwareMap.dcMotor.get("left_motor_F");
+            rightMotorf = hardwareMap.dcMotor.get("left_motor_F");
+            rightMotorb = hardwareMap.dcMotor.get("left_motor_B");
+            leftMotorb = hardwareMap.dcMotor.get("left_motor_B");
             armMotor = hardwareMap.dcMotor.get("arm_motor");
 
-            leftMotorF.setDirection(DcMotor.Direction.REVERSE);
-            rightMotorF.setDirection(DcMotor.Direction.FORWARD);
-            leftMotorB.setDirection(DcMotor.Direction.REVERSE);
-            rightMotorB.setDirection(DcMotor.Direction.FORWARD);
+            leftMotorf.setDirection(DcMotor.Direction.REVERSE);
+            rightMotorf.setDirection(DcMotor.Direction.FORWARD);
+            leftMotorb.setDirection(DcMotor.Direction.REVERSE);
+            rightMotorb.setDirection(DcMotor.Direction.FORWARD);
             armMotor.setDirection(DcMotor.Direction.FORWARD);
 
         waitForStart();
         while(opModeIsActive()) {
 
-            leftMotorF.setPower(gamepad1.right_stick_y);
-            rightMotorF.setPower(gamepad1.right_stick_y);
-            leftMotorB.setPower(gamepad1.right_stick_y);
-            rightMotorB.setPower(gamepad1.right_stick_y);
+            leftMotorf.setPower(gamepad1.left_stick_y);
+            rightMotorf.setPower(gamepad1.left_stick_y);
+            leftMotorb.setPower(gamepad1.left_stick_y);
+            rightMotorb.setPower(gamepad1.left_stick_y);
+            rightMotorf.setPower(gamepad1.right_stick_x);
+            rightMotorb.setPower(gamepad1.right_stick_x);
+            leftMotorf.setPower(-gamepad1.right_stick_y);
+            leftMotorb.setPower(-gamepad1.right_stick_y);
             armMotor.setPower(gamepad2.a);
 
 
