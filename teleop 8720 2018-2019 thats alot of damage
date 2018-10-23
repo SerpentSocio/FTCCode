@@ -1,29 +1,45 @@
-   public void runOpMode() throws InterruptedException {
+  import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
+import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
+import com.qualcomm.robotcore.util.ElapsedTime;
+import com.qualcomm.robotcore.util.Range;
 
-            leftMotorf = hardwareMap.dcMotor.get("left_motor_F");
-            rightMotorf = hardwareMap.dcMotor.get("left_motor_F");
-            rightMotorb = hardwareMap.dcMotor.get("left_motor_B");
-            leftMotorb = hardwareMap.dcMotor.get("left_motor_B");
-        
+public class TeleOp extends LinearOpMode{
 
-            leftMotorf.setDirection(DcMotor.Direction.REVERSE);
-            rightMotorf.setDirection(DcMotor.Direction.FORWARD);
-            leftMotorb.setDirection(DcMotor.Direction.REVERSE);
-            rightMotorb.setDirection(DcMotor.Direction.FORWARD);
-         
+    // declare opmodes
+     DcMotor leftMotorF = null;
+     DcMotor rightMotorF = null;
+     DcMotor rightMotorB = null;
+     DcMotor leftMotorB = null;
+
+
+        public void runOpMode() throws InterruptedException {
+
+            leftMotorF= hardwareMap.dcMotor.get("left_motor_F");
+            rightMotorF = hardwareMap.dcMotor.get("left_motor_F");
+            rightMotorB = hardwareMap.dcMotor.get("left_motor_B");
+            leftMotorB = hardwareMap.dcMotor.get("left_motor_B");
+
+
+            leftMotorF.setDirection(DcMotor.Direction.REVERSE);
+            rightMotorF.setDirection(DcMotor.Direction.FORWARD);
+            leftMotorB.setDirection(DcMotor.Direction.REVERSE);
+            rightMotorB.setDirection(DcMotor.Direction.FORWARD);
+
 
         waitForStart();
         while(opModeIsActive()) {
 
-            leftMotorf.setPower(gamepad1.left_stick_y);
-            rightMotorf.setPower(gamepad1.left_stick_y);
-            leftMotorb.setPower(gamepad1.left_stick_y);
-            rightMotorb.setPower(gamepad1.left_stick_y);
-            rightMotorf.setPower(gamepad1.right_stick_x);
-            rightMotorb.setPower(gamepad1.right_stick_x);
-            leftMotorf.setPower(-gamepad1.right_stick_y);
-            leftMotorb.setPower(-gamepad1.right_stick_y);
-     
+            leftMotorF.setPower(gamepad1.right_stick_y);
+            rightMotorF.setPower(gamepad1.right_stick_y);
+            leftMotorB.setPower(gamepad1.right_stick_y);
+            rightMotorB.setPower(gamepad1.right_stick_y);
+            rightMotorF.setPower(gamepad1.right_stick_x);
+            rightMotorB.setPower(gamepad1.right_stick_x);
+            leftMotorF.setPower(-gamepad1.right_stick_y);
+            leftMotorB.setPower(-gamepad1.right_stick_y);
 
 
         }
