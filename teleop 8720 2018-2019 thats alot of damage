@@ -4,13 +4,13 @@
             rightMotorf = hardwareMap.dcMotor.get("left_motor_F");
             rightMotorb = hardwareMap.dcMotor.get("left_motor_B");
             leftMotorb = hardwareMap.dcMotor.get("left_motor_B");
-            armMotor = hardwareMap.dcMotor.get("arm_motor");
+        
 
             leftMotorf.setDirection(DcMotor.Direction.REVERSE);
             rightMotorf.setDirection(DcMotor.Direction.FORWARD);
             leftMotorb.setDirection(DcMotor.Direction.REVERSE);
             rightMotorb.setDirection(DcMotor.Direction.FORWARD);
-            armMotor.setDirection(DcMotor.Direction.FORWARD);
+         
 
         waitForStart();
         while(opModeIsActive()) {
@@ -23,7 +23,7 @@
             rightMotorb.setPower(gamepad1.right_stick_x);
             leftMotorf.setPower(-gamepad1.right_stick_y);
             leftMotorb.setPower(-gamepad1.right_stick_y);
-            armMotor.setPower(gamepad2.a);
+     
 
 
         }
